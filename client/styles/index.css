@@ -1,0 +1,16 @@
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.bg {
+    background-image: linear-gradient(to right top, #051937, #062869, #32329a, #6b32c7, #ae12eb);
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.header {
+    
+}
