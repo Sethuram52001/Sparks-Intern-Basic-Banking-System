@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="./node_modules/axios/dist/axios.min.js"></script>
+        <script src="./node_modules/axios/dist/axios.min.js"></script>   
         <style>
             th, td, p, input, h3 {
                 font:15px 'Segoe UI';
@@ -13,69 +13,49 @@
                 border-collapse: collapse;
                 padding: 2px 3px;
                 text-align: center;
+                width: 1000px;
             }
             th {
                 font-weight:bold;
             }
         </style>
         <script type="text/javascript" src="./js/script.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="./styles/index.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     </head>
     <body onload="tableFromJson()">
-        <button type="button" onclick="transfer('a@gmail.com', 'c@gmail.com'), transferDetails()">transfer</button>
-        <label for="fromCustomer">From: </label>
-            <select name="fromCustomer" id="fromCustomer" onchange="setCustomerValue()">
-                <option value="a@gmail.com">A</option>
-                <option value="b@gmail.com">B</option>
-                <option value="c@gmail.com">C</option>
-                <option value="d@gmail.com">D</option>
-                <option value="e@gmail.com">E</option>
-                <option value="f@gmail.com">F</option>
-                <option value="g@gmail.com">G</option>
-                <option value="h@gmail.com">H</option>
-                <option value="i@gmail.com">I</option>
-                <option value="j@gmail.com">J</option>
-            </select>
-        <label for="toCustomer">To: </label>
-            <select name="toCustomer" id="toCustomer" onchange="setCustomerValue()">
-                <option value="a@gmail.com">A</option>
-                <option value="b@gmail.com">B</option>
-                <option value="c@gmail.com">C</option>
-                <option value="d@gmail.com">D</option>
-                <option value="e@gmail.com">E</option>
-                <option value="f@gmail.com">F</option>
-                <option value="g@gmail.com">G</option>
-                <option value="h@gmail.com">H</option>
-                <option value="i@gmail.com">I</option>
-                <option value="j@gmail.com">J</option>
-            </select>
-        <label for="amountTransfered">Amount to be transfered</label>
-            <input type="number" id="amountTransfered" value="0" onchange="setCustomerValue(this.value)">
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="customer_details.html">Search</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="transfer.html">Transfer</a>
+                </li> 
+                <li class="nav-item">
+                    <a class="nav-link" href="AddCustomer.html">Add Customer</a>
+                </li>
+              </ul>
+            </div>  
+          </nav>
         <br>
-        <p id='showData'></p>
-        <input type="text" name="fname" value="A" onchange="myFunction(this.value)">
-        <script>
-            // document.getElementById("myform").addEventListener("submit", function(e) {
-            //     e.preventDefault()
-            // })
-            // function myFunction(val) {
-            //     console.log(val)
-            // }
-            var x="a@gmail.com", y="a@gmail.com", amountTransfered = 0;
-            function setCustomerValue(val) {
-                this.x = document.getElementById("fromCustomer").value;
-                console.log(x);
-                this.y = document.getElementById("toCustomer").value;
-                console.log(y)
-                console.log(val)
-                this.amountTransfered = val;
-                console.log(amountTransfered);
-            }
-            function transferDetails() {
-                console.log("from transfer", this.x);
-                console.log("to transfer:", this.y)
-                transfer(this.x,this.y, this.amountTransfered);
-            }
-        </script>
+        <h1 class="welcome-header animate__animated animate__backInDown">Welcome to Sparks Foundation Bank</h1>
+        <br>
+        <div class="row">
+            <div class="mx-auto mw-100" id='showData'></div>
+        </div>
     </body>
     <script>
         async function tableFromJson() {
@@ -122,6 +102,3 @@
             }
     </script>
 </html>
-
-
-<!-- // document.getElementById('msg').innerHTML = '<br />You can later <a href="https://www.encodedna.com/javascript/dynamically-add-remove-rows-to-html-table-using-javascript-and-save-data.htm" target="_blank" style="color:#1464f4;text-decoration:none;">get all the data from table and save it in a database.</a>'; -->

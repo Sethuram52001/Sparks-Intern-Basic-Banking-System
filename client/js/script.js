@@ -5,8 +5,6 @@ const getCustomerDetails = async() => {
     return data;
 }
 
-getCustomerDetails();
-
 const transfer = async(a, b, amountTransfered) => {
     const customerDetails = await getCustomerDetails();
     const customer1 = customerDetails.filter((item) => {
@@ -40,4 +38,25 @@ const transfer = async(a, b, amountTransfered) => {
         console.log(res)
     }) 
     .catch(err => console.log(err));
+}
+
+async function searchCustomer(val) {
+    console.log(val)
+    const customers = await getCustomerDetails();
+    console.log(customers)
+    const customer = customers.filter(item => {
+        return item.name === val
+    })
+    return customer
+}
+
+async function addCustomer(name, email, balance) {
+    const customer = {
+        name: name,
+        email: email,
+        balance: balance
+    }
+    axios.post("http://localhost:5000/customer/add", customer)
+        .then(res => console.log(res.data))
+        .catch(err => console.log(err))
 }

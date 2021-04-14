@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="./node_modules/axios/dist/axios.min.js"></script>
+        <script type="text/javascript" src="./js/script.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="./styles/transfer.css">
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="customer_details.html">Search</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="transfer.html">Transfer</a>
+                </li> 
+                <li class="nav-item">
+                  <a class="nav-link" href="AddCustomer.html">Add Customer</a>
+                </li>
+              </ul>
+            </div>  
+          </nav>
+        <br>
+        <label for="fromCustomer">From: </label>
+            <select name="fromCustomer" id="fromCustomer" onchange="setCustomerValue()">
+                <option value="a@gmail.com">A</option>
+                <option value="b@gmail.com">B</option>
+                <option value="c@gmail.com">C</option>
+                <option value="d@gmail.com">D</option>
+                <option value="e@gmail.com">E</option>
+                <option value="f@gmail.com">F</option>
+                <option value="g@gmail.com">G</option>
+                <option value="h@gmail.com">H</option>
+                <option value="i@gmail.com">I</option>
+                <option value="j@gmail.com">J</option>
+            </select>
+        <label for="toCustomer">To: </label>
+            <select name="toCustomer" id="toCustomer" onchange="setCustomerValue()">
+                <option value="a@gmail.com">A</option>
+                <option value="b@gmail.com">B</option>
+                <option value="c@gmail.com">C</option>
+                <option value="d@gmail.com">D</option>
+                <option value="e@gmail.com">E</option>
+                <option value="f@gmail.com">F</option>
+                <option value="g@gmail.com">G</option>
+                <option value="h@gmail.com">H</option>
+                <option value="i@gmail.com">I</option>
+                <option value="j@gmail.com">J</option>
+            </select>
+        <label for="amountTransfered">Amount to be transfered</label>
+            <input type="number" id="amountTransfered" value="0" onchange="setCustomerValue(this.value)">
+            <button type="button" class="btn btn-success" onclick="transferDetails()">transfer</button>
+            <script>
+                var x="", y="", amountTransfered = 0;
+                function setCustomerValue(val) {
+                    this.x = document.getElementById("fromCustomer").value;
+                    this.y = document.getElementById("toCustomer").value;
+                    this.amountTransfered = val;
+                }
+                function transferDetails() {
+                    console.log("from transfer", this.x);
+                    console.log("to transfer:", this.y)
+                    transfer(this.x,this.y, this.amountTransfered);
+                }
+            </script>
+    </body>
+</html>

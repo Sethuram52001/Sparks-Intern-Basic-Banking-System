@@ -1,16 +1,19 @@
-body, html {
-    height: 100%;
-    margin: 0;
+/*
+#0b0c10 - black
+#1f2833 - dark gray
+#c5c6c7 - gray
+#66fcf1 - aqua
+#45a29e - dark aqua
+*/
+
+body {
+    background-color: #0B0C10;
 }
 
-.bg {
-    background-image: linear-gradient(to right top, #051937, #062869, #32329a, #6b32c7, #ae12eb);
-    height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+.welcome-header {
+    color: #66fcf1;
 }
 
-.header {
-    
+#showData {
+    color: white;
 }
