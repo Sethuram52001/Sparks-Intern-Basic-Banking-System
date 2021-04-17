@@ -9,10 +9,11 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="./styles/customer_details.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
     </head>
     <body>
         <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-            <a class="navbar-brand" href="#">Navbar</a>
+            <a class="navbar-brand" href="#">Banking System</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -30,13 +31,20 @@
                 <li class="nav-item">
                   <a class="nav-link" href="AddCustomer.html">Add Customer</a>
                 </li>
+                <li>
+                  <a class="nav-link" href="customerTable.html">Customers</a>
+                </li>
               </ul>
             </div>  
           </nav>
         <br>
-        <div class="w-100 mx-auto">
-        <label for="searchCustomer" id="search-label">Search</label>
-        <input id="searchCustomer" type="text" name="searchCustomer" value="search" onchange="customerDetails(this.value)">
+        <div class="form-group has-search">
+          <!-- <span class="fa fa-search form-control-feedback"></span> -->
+          <input type="text" class="form-control" placeholder="Search" id="searchCustomer" value="" onchange="customerDetails(this.value)">
+        </div>
+        <div>
+        <!-- <label for="searchCustomer" id="search-label">Search</label>
+        <input id="searchCustomer" type="text" name="searchCustomer" value="search" onchange="customerDetails(this.value)"> -->
         <div class="card" style="width: 18rem;">
           <img class="card-img-top" src="./assests/user_pic.png" alt="Card image cap">
           <div class="card-body">
@@ -44,30 +52,30 @@
             <p class="card-text" id="name"></p>
             <p class="card-text" id="email"></p>
             <p class="card-text" id="balance"></p>
-            <a href="index.html" class="btn btn-primary">View other customers</a>
-            <script>
-              async function customerDetails(val) {
-                const customer = await searchCustomer(val)
-                if(customer.length === 0) {
-                  console.log("error")
-                  document.getElementById("name").innerHTML = "Customer details isn't available";
-                  document.getElementById("email").innerHTML = "";
-                  document.getElementById("balance").innerHTML = "";
-                }
-                else {
-                  document.getElementById("name").innerHTML = "Name:" + " " + customer[0].name;
-                  document.getElementById("email").innerHTML = "Email ID:" + " "+ customer[0].email;
-                  if(customer[0].balance === null) {
-                    document.getElementById("balance").innerHTML = "Balance:" + " " + 0;
-                  }
-                  else {
-                    document.getElementById("balance").innerHTML = "Balance:" + " " + customer[0].balance;
-                  }
-                }
-              }
-            </script>
+            <a href="customerTable.html" class="btn btn-primary">View other customers</a>
           </div>
         </div>
+        <script>
+          async function customerDetails(val) {
+            const customer = await searchCustomer(val)
+            if(customer.length === 0) {
+              console.log("error")
+              document.getElementById("name").innerHTML = "Customer details isn't available";
+              document.getElementById("email").innerHTML = "";
+              document.getElementById("balance").innerHTML = "";
+            }
+            else {
+              document.getElementById("name").innerHTML = "Name:" + " " + customer[0].name;
+              document.getElementById("email").innerHTML = "Email ID:" + " "+ customer[0].email;
+              if(customer[0].balance === null) {
+                document.getElementById("balance").innerHTML = "Balance:" + " " + 0;
+              }
+              else {
+                document.getElementById("balance").innerHTML = "Balance:" + " " + customer[0].balance;
+              }
+            }
+          }
+        </script>
       </div>
     </body>
 </html>

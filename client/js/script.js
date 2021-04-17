@@ -1,3 +1,6 @@
+// let tableElement = document.getElementsByTagName('table')
+// tableElement.classList.add("table table-dark");
+
 const getCustomerDetails = async() => {
     const api_call = await fetch('http://localhost:5000/customer');
     let data = await api_call.json();
@@ -51,6 +54,9 @@ async function searchCustomer(val) {
 }
 
 async function addCustomer(name, email, balance) {
+    if(name === "" || email === "") {
+        return;
+    }
     const customer = {
         name: name,
         email: email,

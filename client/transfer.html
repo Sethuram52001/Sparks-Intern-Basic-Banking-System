@@ -13,7 +13,7 @@
     </head>
     <body>
         <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-            <a class="navbar-brand" href="#">Navbar</a>
+            <a class="navbar-brand" href="#">Banking System</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -31,12 +31,17 @@
                 <li class="nav-item">
                   <a class="nav-link" href="AddCustomer.html">Add Customer</a>
                 </li>
+                <li>
+                  <a class="nav-link" href="customerTable.html">Customers</a>
+                </li>
               </ul>
             </div>  
           </nav>
         <br>
+        <div>
+          <div class="form-element">
         <label for="fromCustomer">From: </label>
-            <select name="fromCustomer" id="fromCustomer" onchange="setCustomerValue()">
+            <select class="form-control" id="exampleFormControlSelect1" name="fromCustomer" id="fromCustomer" onchange="setCustomerValue()">
                 <option value="a@gmail.com">A</option>
                 <option value="b@gmail.com">B</option>
                 <option value="c@gmail.com">C</option>
@@ -48,8 +53,10 @@
                 <option value="i@gmail.com">I</option>
                 <option value="j@gmail.com">J</option>
             </select>
+          </div>
+          <div class="form-element">
         <label for="toCustomer">To: </label>
-            <select name="toCustomer" id="toCustomer" onchange="setCustomerValue()">
+            <select class="form-control" id="exampleFormControlSelect1" name="toCustomer" id="toCustomer" onchange="setCustomerValue()">
                 <option value="a@gmail.com">A</option>
                 <option value="b@gmail.com">B</option>
                 <option value="c@gmail.com">C</option>
@@ -61,19 +68,26 @@
                 <option value="i@gmail.com">I</option>
                 <option value="j@gmail.com">J</option>
             </select>
-        <label for="amountTransfered">Amount to be transfered</label>
-            <input type="number" id="amountTransfered" value="0" onchange="setCustomerValue(this.value)">
-            <button type="button" class="btn btn-success" onclick="transferDetails()">transfer</button>
+          </div>
+          <div class="form-element">
+        <label for="amountTransfered">Amount to be transfered:</label>
+            <input type="number" class="form-control" id="exampleFormControlInput1" id="amountTransfered" placeholder="0" value="" onchange="setCustomerValue(this.value)">
+          </div>
+          <div class="text-center">
+            <button type="button" class="btn btn-success" onclick="transferDetails()">Transfer</button>
+          </div>
+          </div>
             <script>
                 var x="", y="", amountTransfered = 0;
                 function setCustomerValue(val) {
-                    this.x = document.getElementById("fromCustomer").value;
-                    this.y = document.getElementById("toCustomer").value;
+                    this.x = document.getElementsByName("fromCustomer")[0].value;
+                    this.y = document.getElementsByName("toCustomer")[0].value;
                     this.amountTransfered = val;
                 }
                 function transferDetails() {
                     console.log("from transfer", this.x);
                     console.log("to transfer:", this.y)
+                    console.log("amount : " + this.amountTransfered)
                     transfer(this.x,this.y, this.amountTransfered);
                 }
             </script>

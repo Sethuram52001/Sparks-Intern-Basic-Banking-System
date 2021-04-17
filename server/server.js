@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const cors = require("cors");
+const path = require("path");
 
 app.use(express.json());
 app.use(cors());
@@ -15,5 +16,7 @@ mongoose.connection.once('open', () => {
 // routes
 const customerRoute = require("./routes/customer");
 app.use('/customer', customerRoute);
+
+app.use(express.static('../client'))
 
 app.listen(5000, () => {console.log(`Server started at 5000`)});

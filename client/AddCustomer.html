@@ -13,7 +13,7 @@
     </head>
     <body>
       <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="#">Banking System</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -31,28 +31,33 @@
             <li class="nav-item">
               <a class="nav-link" href="AddCustomer.html">Add Customer</a>
             </li>
+            <li>
+              <a class="nav-link" href="customerTable.html">Customers</a>
+            </li>
           </ul>
         </div>  
       </nav>
-            <div class="form-group row">
-              <label for="name" class="col-sm-2 col-form-label">Name</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control-plaintext" id="name" value="name" onchange="setName(this.value)">
+          <form class="card container">
+              <div class="row"> 
+                <label for="name" class="col-sm-2 col-form-label">Name</label>
+                <span>
+                  <input type="text" class="form-control-plaintext" id="name" placeholder="name" value="" onchange="setName(this.value)" required/>
+                </span>
               </div>
-            </div>
-              <label for="email" class="col-sm-2 col-form-label">Email</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control-plaintext" id="email" value="email@example.com" onchange="setEmail(this.value)">
+              <div class="row">
+                <label for="email" class="col-sm-2 col-form-label">Email</label>
+                <span>
+                  <input type="text" class="form-control-plaintext" id="email" placeholder="email@example.com" value="" onchange="setEmail(this.value)" required/>
+                </span>
               </div>
-            </div>
-            <label for="balance" class="col-sm-2 col-form-label">Balance</label>
-            <div class="col-sm-10">
-              <input type="number" class="form-control-plaintext" id="balance" value="0" onchange="setBalance(this.value)">
-            </div>
-          </div>
-          <div>
-            <button class="btn btn-primary" onclick="addCustomerDetails()">Add to DB</button>
-          </div>
+              <div class="row">
+                <label for="balance" class="col-sm-2 col-form-label">Balance</label>  
+                <span>
+                  <input type="number" class="form-control-plaintext" id="balance" placeholder="0" value="" onchange="setBalance(this.value)" required/>
+                </span>
+              </div>
+            <button class="btn btn-success" onclick="addCustomerDetails()">Add to DB</button>
+          </form>
           <script>
             var name="", email="", balance=0;
             function setName(name) {
@@ -68,5 +73,6 @@
               addCustomer(this.name, this.email, this.balance)
             }
           </script>
+
     </body>
 </html>

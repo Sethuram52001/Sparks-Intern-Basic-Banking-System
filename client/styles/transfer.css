@@ -2,3 +2,13 @@ body {
     background-color: #0B0C10;
     color: #66fcf1;
 }
+
+.form-element {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.text-center {
+    margin-top: 70px;
+}
