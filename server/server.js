@@ -19,4 +19,4 @@ app.use('/customer', customerRoute);
 
 app.use(express.static('../client'))
 
-app.listen(5000, () => {console.log(`Server started at 5000`)});
+app.listen(process.env.PORT || 5000, () => {console.log(`Server started at 5000`)});
