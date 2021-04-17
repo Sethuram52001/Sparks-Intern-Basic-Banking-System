@@ -17,9 +17,9 @@ mongoose.connection.once('open', () => {
 const customerRoute = require("./routes/customer");
 app.use('/customer', customerRoute);
 
-app.use(express.static('../client'))
+app.use(express.static('./client'));
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3000;
 
 // port for heroku
-app.listen(port, () => {console.log(`Server started at 5000`)})
+app.listen(port, () => {console.log(`Server started at 3000`)})
